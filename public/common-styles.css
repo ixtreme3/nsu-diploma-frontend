@@ -1,0 +1,96 @@
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: #F5F7FA;
+  margin: 0;
+}
+    
+button {
+  height: 25px;
+  width: 66px;
+  margin: 2px;
+  font-size: 10px;
+  font-weight: 700;
+  background-color: #ECECEC;
+  border: 1px solid #C4C4C4;
+  border-radius: 8px;
+}
+
+p {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: auto;
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 40px);
+}
+
+.centered {
+  width: 700px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+  margin-bottom: 30px; 
+}
+
+.logo-image {
+  margin: 20px 0px 15px 0px;
+}
+
+.main-block {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid #ECECEC;
+  /* padding: 5px 25px; */
+}
+
+.text-heading {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.menu-line {
+  display: flex;
+  margin: 15px;
+  height: 28px;
+}
+
+
+
+
+
+
+
+
+
+.footer {
+  height: 40px;
+  margin-top: 40px;
+  border-radius: 18px;
+  background-color: #ECECEC;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  margin-left: auto;
+  margin-right: 50px;
+  width: 150px;
+  font-weight: 500;
+  text-decoration: none;
+  color: black;
+}
+
+.github-image {
+  margin-right: 10px;
+}
+
