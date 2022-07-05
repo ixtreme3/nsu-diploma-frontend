@@ -1,0 +1,1295 @@
+@prefix : <http://nsu.ru/organizationalOntology/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://nsu.ru/organizationalOntology/> .
+
+<http://nsu.ru/organizationalOntology/> rdf:type owl:Ontology ;
+                                         dc:creator "Ivan Nemtsev" ;
+                                         dc:description "Ontology for modelling organizational structures, specializable to a broad variety of types of organization."@en ;
+                                         dc:title "Organizational structure ontology"@en ;
+                                         owl:versionInfo "1.0"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/goodrelations/v1#closes
+gr:closes rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/goodrelations/v1#hasOpeningHoursDayOfWeek
+gr:hasOpeningHoursDayOfWeek rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/goodrelations/v1#hasOpeningHoursSpecification
+gr:hasOpeningHoursSpecification rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/goodrelations/v1#opens
+gr:opens rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#time
+xsd:time rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://nsu.ru/organizationalOntology/hasLimitations
+:hasLimitations rdf:type owl:ObjectProperty ;
+                rdfs:domain :Workspace ;
+                rdfs:range :BuisnessRules ;
+                rdfs:label "hasLimitations" .
+
+
+###  http://nsu.ru/organizationalOntology/placeType
+:placeType rdf:type owl:ObjectProperty ;
+           rdfs:domain :Place ;
+           rdfs:range :Building ,
+                      :Section ,
+                      :Site ,
+                      :Space ,
+                      :Storey ;
+           rdfs:label "placeType" .
+
+
+###  http://nsu.ru/organizationalOntology/relationType
+:relationType rdf:type owl:ObjectProperty ;
+              rdfs:domain :Relation ;
+              rdfs:range :BranchOrganization ,
+                         :HeadOf ,
+                         :HoldsPost ,
+                         :LocatesIn ,
+                         :MemberOf ,
+                         :PartnerOrganization ,
+                         :PostOf ,
+                         :ReportsTo ,
+                         :SubOrganization ,
+                         :SubPlace ,
+                         :SubUnit ,
+                         :Subsdiary ,
+                         :UnitOf ;
+              rdfs:label "relationType"@en .
+
+
+###  http://nsu.ru/organizationalOntology/relationWorkspaceLink
+:relationWorkspaceLink rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Relation ;
+                       rdfs:range :Workspace ;
+                       rdfs:label "relationWorkspaceLink"@en .
+
+
+###  http://nsu.ru/organizationalOntology/supports
+:supports rdf:type owl:ObjectProperty ;
+          rdfs:domain :Workspace ;
+          rdfs:range :SupportedOperations ;
+          rdfs:label "supports"@en .
+
+
+###  http://nsu.ru/organizationalOntology/workspaceRelationLink
+:workspaceRelationLink rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Workspace ;
+                       rdfs:range :Relation ;
+                       rdfs:label "workspaceRelationLink"@en .
+
+
+###  http://nsu.ru/organizationalOntology/workspaceType
+:workspaceType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Workspace ;
+               rdfs:range :Organization ,
+                          :OrganizationalUnit ,
+                          :Person ,
+                          :Place ,
+                          :Post ;
+               rdfs:label "workspaceType"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://nsu.ru/organizationalOntology/accessRestrictionLevel
+:accessRestrictionLevel rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :BuisnessRules ;
+                        rdfs:range xsd:integer ;
+                        rdfs:label "accessRestrictionLevel" .
+
+
+###  http://nsu.ru/organizationalOntology/basicOperations
+:basicOperations rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :SupportedOperations ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "basicOperations" .
+
+
+###  http://nsu.ru/organizationalOntology/placeDescription
+:placeDescription rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Place ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "placeDescription" .
+
+
+###  http://nsu.ru/organizationalOntology/popularityLevel
+:popularityLevel rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :BuisnessRules ;
+                 rdfs:range xsd:integer ;
+                 rdfs:label "popularityLevel" .
+
+
+###  http://nsu.ru/organizationalOntology/unitPower
+:unitPower rdf:type owl:DatatypeProperty ;
+           rdfs:domain :BuisnessRules ;
+           rdfs:range xsd:integer ;
+           rdfs:label "unitPower" .
+
+
+###  http://nsu.ru/organizationalOntology/workloadLevel
+:workloadLevel rdf:type owl:DatatypeProperty ;
+               rdfs:domain :BuisnessRules ;
+               rdfs:range xsd:integer ;
+               rdfs:label "workloadLevel" .
+
+
+###  http://nsu.ru/organizationalOntology/workspaceDescription
+:workspaceDescription rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Workspace ;
+                      rdfs:range xsd:string ;
+                      rdfs:label "workspaceDescription" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://nsu.ru/organizationalOntology/BranchOrganization
+:BranchOrganization rdf:type owl:Class ;
+                    rdfs:label "BranchOrganization" .
+
+
+###  http://nsu.ru/organizationalOntology/Building
+:Building rdf:type owl:Class ;
+          rdfs:label "Building" .
+
+
+###  http://nsu.ru/organizationalOntology/BuisnessRules
+:BuisnessRules rdf:type owl:Class ;
+               rdfs:label "BuisnessRules"@en .
+
+
+###  http://nsu.ru/organizationalOntology/HeadOf
+:HeadOf rdf:type owl:Class ;
+        rdfs:label "HeadOf"@en .
+
+
+###  http://nsu.ru/organizationalOntology/HoldsPost
+:HoldsPost rdf:type owl:Class ;
+           rdfs:label "HoldsPost"@en .
+
+
+###  http://nsu.ru/organizationalOntology/LocatesIn
+:LocatesIn rdf:type owl:Class ;
+           rdfs:label "LocatesIn"@en .
+
+
+###  http://nsu.ru/organizationalOntology/MemberOf
+:MemberOf rdf:type owl:Class ;
+          rdfs:label "MemberOf"@en .
+
+
+###  http://nsu.ru/organizationalOntology/Organization
+:Organization rdf:type owl:Class ;
+              rdfs:label "Organization"@en .
+
+
+###  http://nsu.ru/organizationalOntology/OrganizationalUnit
+:OrganizationalUnit rdf:type owl:Class ;
+                    rdfs:label "OrganizationalUnit"@en .
+
+
+###  http://nsu.ru/organizationalOntology/PartnerOrganization
+:PartnerOrganization rdf:type owl:Class ;
+                     rdfs:label "PartnerOrganization" .
+
+
+###  http://nsu.ru/organizationalOntology/Person
+:Person rdf:type owl:Class ;
+        rdfs:label "Person"@en .
+
+
+###  http://nsu.ru/organizationalOntology/Place
+:Place rdf:type owl:Class ;
+       rdfs:label "Place"@en .
+
+
+###  http://nsu.ru/organizationalOntology/Post
+:Post rdf:type owl:Class ;
+      rdfs:label "Post"@en .
+
+
+###  http://nsu.ru/organizationalOntology/PostOf
+:PostOf rdf:type owl:Class ;
+        rdfs:label "PostOf" .
+
+
+###  http://nsu.ru/organizationalOntology/Relation
+:Relation rdf:type owl:Class ;
+          rdfs:label "Relation"@en .
+
+
+###  http://nsu.ru/organizationalOntology/ReportsTo
+:ReportsTo rdf:type owl:Class ;
+           rdfs:label "ReportsTo"@en .
+
+
+###  http://nsu.ru/organizationalOntology/Section
+:Section rdf:type owl:Class ;
+         rdfs:label "Section" .
+
+
+###  http://nsu.ru/organizationalOntology/Site
+:Site rdf:type owl:Class ;
+      rdfs:label "Site" .
+
+
+###  http://nsu.ru/organizationalOntology/Space
+:Space rdf:type owl:Class ;
+       rdfs:label "Space" .
+
+
+###  http://nsu.ru/organizationalOntology/Storey
+:Storey rdf:type owl:Class ;
+        rdfs:label "Storey" .
+
+
+###  http://nsu.ru/organizationalOntology/SubOrganization
+:SubOrganization rdf:type owl:Class ;
+                 rdfs:label "SubOrganization"@en .
+
+
+###  http://nsu.ru/organizationalOntology/SubPlace
+:SubPlace rdf:type owl:Class ;
+          rdfs:label "SubPlace" .
+
+
+###  http://nsu.ru/organizationalOntology/SubUnit
+:SubUnit rdf:type owl:Class ;
+         rdfs:label "SubUnit"@en .
+
+
+###  http://nsu.ru/organizationalOntology/Subsdiary
+:Subsdiary rdf:type owl:Class ;
+           rdfs:label "Subsdiary" .
+
+
+###  http://nsu.ru/organizationalOntology/SupportedOperations
+:SupportedOperations rdf:type owl:Class ;
+                     rdfs:label "SupportedOperations"@en .
+
+
+###  http://nsu.ru/organizationalOntology/UnitOf
+:UnitOf rdf:type owl:Class ;
+        rdfs:label "UnitOf" .
+
+
+###  http://nsu.ru/organizationalOntology/Workspace
+:Workspace rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :workspaceType ;
+                             owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                           ] ;
+           rdfs:label "Workspace"@en .
+
+
+###  http://purl.org/goodrelations/v1#OpeningHoursSpecification
+gr:OpeningHoursSpecification rdf:type owl:Class ;
+                             rdfs:label "OpeningHoursSpecification" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://nsu.ru/organizationalOntology/АндрееваИннаВикторовна
+:АндрееваИннаВикторовна rdf:type owl:NamedIndividual ,
+                                 :Workspace ;
+                        :workspaceRelationLink :Связь:ОтделПУ-Сотрудник ,
+                                               :Связь:Сотрудник-ГлаваОтделаПоУчетуПлатныхУслуг ,
+                                               :Связь:СотрудникБухгалтерии-Бухгалтерия ;
+                        :workspaceType :Сотрудник ;
+                        rdfs:label "Андреева Инна Викторовна" .
+
+
+###  http://nsu.ru/organizationalOntology/БизнесПравилаБухгалтерии
+:БизнесПравилаБухгалтерии rdf:type owl:NamedIndividual ,
+                                   :BuisnessRules ;
+                          :accessRestrictionLevel 4 ;
+                          :popularityLevel 4 ;
+                          :unitPower 10 ;
+                          :workloadLevel 7 ;
+                          gr:hasOpeningHoursSpecification [ rdf:type gr:OpeningHoursSpecification ;
+                                                            gr:closes "16:00:00"^^xsd:time ;
+                                                            gr:hasOpeningHoursDayOfWeek gr:Friday ,
+                                                                                        gr:Monday ,
+                                                                                        gr:Thursday ,
+                                                                                        gr:Tuesday ,
+                                                                                        gr:Wednesday ;
+                                                            gr:opens "09:30:00"^^xsd:time
+                                                          ] ;
+                          rdfs:label "Бизнес-правила Бухгалтерии" .
+
+
+###  http://nsu.ru/organizationalOntology/БизнесПравилаНГУ
+:БизнесПравилаНГУ rdf:type owl:NamedIndividual ,
+                           :BuisnessRules ;
+                  :accessRestrictionLevel 3 ;
+                  :popularityLevel 8 ;
+                  :unitPower 10000 ;
+                  :workloadLevel 5 ;
+                  gr:hasOpeningHoursSpecification [ rdf:type gr:OpeningHoursSpecification ;
+                                                    gr:closes "22:00:00"^^xsd:time ;
+                                                    gr:hasOpeningHoursDayOfWeek gr:Friday ,
+                                                                                gr:Monday ,
+                                                                                gr:Thursday ,
+                                                                                gr:Tuesday ,
+                                                                                gr:Wednesday ;
+                                                    gr:opens "09:00:00"^^xsd:time
+                                                  ] ;
+                  rdfs:label "Бизнес-правила НГУ" .
+
+
+###  http://nsu.ru/organizationalOntology/БизнесПравилаРектората
+:БизнесПравилаРектората rdf:type owl:NamedIndividual ,
+                                 :BuisnessRules ;
+                        :accessRestrictionLevel 6 ;
+                        :popularityLevel 3 ;
+                        :unitPower 25 ;
+                        :workloadLevel 5 ;
+                        gr:hasOpeningHoursSpecification [ rdf:type gr:OpeningHoursSpecification ;
+                                                          gr:closes "18:00:00"^^xsd:time ;
+                                                          gr:hasOpeningHoursDayOfWeek gr:Friday ,
+                                                                                      gr:Monday ,
+                                                                                      gr:Thursday ,
+                                                                                      gr:Tuesday ,
+                                                                                      gr:Wednesday ;
+                                                          gr:opens "10:00:00"^^xsd:time
+                                                        ] ;
+                        rdfs:label "Бизнес правила Ректората" .
+
+
+###  http://nsu.ru/organizationalOntology/Бухгалтерия
+:Бухгалтерия rdf:type owl:NamedIndividual ,
+                      :Workspace ;
+             :hasLimitations :БизнесПравилаБухгалтерии ;
+             :supports :ПоддерживаемыеОперацииБухгалтерии ;
+             :workspaceRelationLink :Связь:Бухгалтерия-НГУ ,
+                                    :Связь:ОтделНГУ-НГУ ;
+             :workspaceType :Отдел ;
+             :workspaceDescription "Данный отдел представляет собой структурное подразделение организации, предназначенное для сбора данных об имуществе и обязательствах предприятия." ;
+             rdfs:label "Бухгалтерия" .
+
+
+###  http://nsu.ru/organizationalOntology/ГлаваОтделаПоРасчетамЗПиСТ
+:ГлаваОтделаПоРасчетамЗПиСТ rdf:type owl:NamedIndividual ,
+                                     :Workspace ;
+                            :workspaceRelationLink :Связь:ГлаваОтдела-ЗамГлБух ,
+                                                   :Связь:ГлаваОтделаПоРасчетамЗПиСТ-Отдел ;
+                            :workspaceType :Должность ;
+                            rdfs:label "Глава отдела по расчетам заработной платы и стипендии" .
+
+
+###  http://nsu.ru/organizationalOntology/ГлаваОтделаПоУчетуНефинансовыхУслуг
+:ГлаваОтделаПоУчетуНефинансовыхУслуг rdf:type owl:NamedIndividual ,
+                                              :Workspace ;
+                                     :workspaceRelationLink :Связь:ГлаваОтдела-ЗамГлБух ,
+                                                            :Связь:ГлаваОтделаПоУчетуНефинансовыхУслуг-Отдел ;
+                                     :workspaceType :Должность ;
+                                     rdfs:label "Глава отдела по учету нефинансовых услуг" .
+
+
+###  http://nsu.ru/organizationalOntology/ГлаваОтделаПоУчетуПлатныхУслуг
+:ГлаваОтделаПоУчетуПлатныхУслуг rdf:type owl:NamedIndividual ,
+                                         :Workspace ;
+                                :workspaceRelationLink :Связь:ГлаваОтдела-ЗамГлБух ,
+                                                       :Связь:ГлаваОтделаПоУчетуПлатныхУслуг-Отдел ;
+                                :workspaceType :Должность ;
+                                rdfs:label "Глава отдела по учету платных услуг" .
+
+
+###  http://nsu.ru/organizationalOntology/ГлаваОтделаПоУчетуФинансовыхУслуг
+:ГлаваОтделаПоУчетуФинансовыхУслуг rdf:type owl:NamedIndividual ,
+                                            :Workspace ;
+                                   :workspaceRelationLink :Связь:ГлаваОтдела-ЗамГлБух ,
+                                                          :Связь:ГлаваОтделаПоУчетуФинансовыхУслуг-Отдел ;
+                                   :workspaceType :Должность ;
+                                   rdfs:label "Глава отдела по учету финансовых услуг" .
+
+
+###  http://nsu.ru/organizationalOntology/ГлавныйБухгалтер
+:ГлавныйБухгалтер rdf:type owl:NamedIndividual ,
+                           :Workspace ;
+                  :workspaceRelationLink :Связь:ГлБух-Бухгалтерия ,
+                                         :Связь:ГлБух-Ректор ,
+                                         :Связь:ГлавныйБухгалтер-Кабинет ;
+                  :workspaceType :Должность ;
+                  rdfs:label "Главный бухгалтер" .
+
+
+###  http://nsu.ru/organizationalOntology/ДаурцеваАннаВладимировна
+:ДаурцеваАннаВладимировна rdf:type owl:NamedIndividual ,
+                                   :Workspace ;
+                          :workspaceRelationLink :Связь:Сотрудник-ЗамГлБух ,
+                                                 :Связь:СотрудникБухгалтерии-Бухгалтерия ;
+                          :workspaceType :Сотрудник ;
+                          rdfs:label "Даурцева Анна Владимировна" .
+
+
+###  http://nsu.ru/organizationalOntology/ДмитрийВладимировичЧуркин
+:ДмитрийВладимировичЧуркин rdf:type owl:NamedIndividual ,
+                                    :Workspace ;
+                           :workspaceRelationLink :Связь:Сотрудник-ПроректорПоНаучно-ИсследовательскойДеятельности ,
+                                                  :Связь:СотрудникРектората-Ректорат ;
+                           :workspaceType :Сотрудник ;
+                           rdfs:label "Дмитрий Владимирович Чуркин" .
+
+
+###  http://nsu.ru/organizationalOntology/ДолговаЖанияМуташовна
+:ДолговаЖанияМуташовна rdf:type owl:NamedIndividual ,
+                                :Workspace ;
+                       :workspaceRelationLink :Связь:ОтделНУ-Сотрудник ,
+                                              :Связь:Сотрудник-ГлаваОтделаПоУчетуНефинансовыхУслуг ,
+                                              :Связь:СотрудникБухгалтерии-Бухгалтерия ;
+                       :workspaceType :Сотрудник ;
+                       rdfs:label "Долгова Жания Муташовна" .
+
+
+###  http://nsu.ru/organizationalOntology/Должность
+:Должность rdf:type owl:NamedIndividual ,
+                    :Post ;
+           rdfs:label "Должность" .
+
+
+###  http://nsu.ru/organizationalOntology/ЗаместительГлавногоБухгалтера
+:ЗаместительГлавногоБухгалтера rdf:type owl:NamedIndividual ,
+                                        :Workspace ;
+                               :workspaceRelationLink :Связь:ЗамГлБух-Бухгалтерия ;
+                               :workspaceType :Должность ;
+                               rdfs:label "Заместитель Главного бухгалтера" .
+
+
+###  http://nsu.ru/organizationalOntology/ЗаниматьДолжность
+:ЗаниматьДолжность rdf:type owl:NamedIndividual ,
+                            :HoldsPost ;
+                   rdfs:label "Занимать должность" .
+
+
+###  http://nsu.ru/organizationalOntology/Здание
+:Здание rdf:type owl:NamedIndividual ,
+                 :Building ;
+        rdfs:label "Здание" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет
+:Кабинет rdf:type owl:NamedIndividual ,
+                  :Space ;
+         rdfs:label "Кабинет" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет121
+:Кабинет121 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-1этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 121" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет122
+:Кабинет122 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-1этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 122" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет218
+:Кабинет218 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-2этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 218" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет311
+:Кабинет311 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-3этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 311" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет416
+:Кабинет416 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-4этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 416" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет420
+:Кабинет420 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-4этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 420" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет512
+:Кабинет512 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-5этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 512" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет513
+:Кабинет513 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-5этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 513" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет514
+:Кабинет514 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-5этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 514" .
+
+
+###  http://nsu.ru/organizationalOntology/Кабинет524
+:Кабинет524 rdf:type owl:NamedIndividual ,
+                     :Workspace ;
+            :workspaceRelationLink :Связь:Кабинет-5этаж ;
+            :workspaceType :Место:Кабинет ;
+            rdfs:label "Кабинет 524" .
+
+
+###  http://nsu.ru/organizationalOntology/КампусНГУ
+:КампусНГУ rdf:type owl:NamedIndividual ,
+                    :Workspace ;
+           :workspaceType :Место:Территория ;
+           rdfs:label "Кампус НГУ" .
+
+
+###  http://nsu.ru/organizationalOntology/МихаилПетровичФедорук
+:МихаилПетровичФедорук rdf:type owl:NamedIndividual ,
+                                :Workspace ;
+                       :workspaceRelationLink :Связь:Сотрудник-Ректор ,
+                                              :Связь:СотрудникРектората-Ректорат ;
+                       :workspaceType :Сотрудник ;
+                       rdfs:label "Михаил Петрович Федорук" .
+
+
+###  http://nsu.ru/organizationalOntology/НГУ
+:НГУ rdf:type owl:NamedIndividual ,
+              :Workspace ;
+     :hasLimitations :БизнесПравилаНГУ ;
+     :supports :ПоддерживаемыеОперацииНГУ ;
+     :workspaceType :Организация ;
+     rdfs:label "Новосибирский Государственный Университет" .
+
+
+###  http://nsu.ru/organizationalOntology/НаумоваТатьянаЛеонидовна
+:НаумоваТатьянаЛеонидовна rdf:type owl:NamedIndividual ,
+                                   :Workspace ;
+                          :workspaceRelationLink :Связь:ОтделЗПиСТ-Сотрудник ,
+                                                 :Связь:Сотрудник-ГлаваОтделаПоРасчетамЗПиСТ ;
+                          :workspaceType :Сотрудник ;
+                          rdfs:label "Наумова Татьяна Леонидовна" .
+
+
+###  http://nsu.ru/organizationalOntology/НовыйкорпусНГУ
+:НовыйкорпусНГУ rdf:type owl:NamedIndividual ,
+                         :Workspace ;
+                :workspaceRelationLink :Связь:НовыйКорпус-Кампус ;
+                :workspaceType :Место:Здание ;
+                rdfs:label "Новый корпус" .
+
+
+###  http://nsu.ru/organizationalOntology/Организация
+:Организация rdf:type owl:NamedIndividual ,
+                      :Organization ;
+             rdfs:label "Организация" .
+
+
+###  http://nsu.ru/organizationalOntology/Отдел
+:Отдел rdf:type owl:NamedIndividual ,
+                :OrganizationalUnit ;
+       rdfs:label "Отдел" .
+
+
+###  http://nsu.ru/organizationalOntology/ОтделПоРасчетамЗПиСТ
+:ОтделПоРасчетамЗПиСТ rdf:type owl:NamedIndividual ,
+                               :Workspace ;
+                      :workspaceRelationLink :Связь:ОтделНГУ-НГУ ,
+                                             :Связь:ПодотделыБухгалтерии-Бухгалтерия ;
+                      :workspaceType :Отдел ;
+                      rdfs:label "Отдел по расчетам заработной платы и стипендии" .
+
+
+###  http://nsu.ru/organizationalOntology/ОтделПоУчетуНефинансовыхУслуг
+:ОтделПоУчетуНефинансовыхУслуг rdf:type owl:NamedIndividual ,
+                                        :Workspace ;
+                               :workspaceRelationLink :Связь:ОтделНГУ-НГУ ,
+                                                      :Связь:ПодотделыБухгалтерии-Бухгалтерия ;
+                               :workspaceType :Отдел ;
+                               rdfs:label "Отдел по учету нефинансовых услуг" .
+
+
+###  http://nsu.ru/organizationalOntology/ОтделПоУчетуПлатныхУслуг
+:ОтделПоУчетуПлатныхУслуг rdf:type owl:NamedIndividual ,
+                                   :Workspace ;
+                          :workspaceRelationLink :Связь:ОтделНГУ-НГУ ,
+                                                 :Связь:ПодотделыБухгалтерии-Бухгалтерия ;
+                          :workspaceType :Отдел ;
+                          rdfs:label "Отдел по учету платных услуг" .
+
+
+###  http://nsu.ru/organizationalOntology/ОтделПоУчетуФинансовыхУслуг
+:ОтделПоУчетуФинансовыхУслуг rdf:type owl:NamedIndividual ,
+                                      :Workspace ;
+                             :workspaceRelationLink :Связь:ОтделНГУ-НГУ ,
+                                                    :Связь:ПодотделыБухгалтерии-Бухгалтерия ;
+                             :workspaceType :Отдел ;
+                             rdfs:label "Отдел по учету финансовых услуг" .
+
+
+###  http://nsu.ru/organizationalOntology/ПоддерживаемыеОперацииБухгалтерии
+:ПоддерживаемыеОперацииБухгалтерии rdf:type owl:NamedIndividual ,
+                                            :SupportedOperations ;
+                                   :basicOperations "заработная плата,стипендия,оплата проживания в общежитиях НГУ, платное обучение,учет имущества,поступление/выбытие денежных средств,платежные поручения,командировки" ;
+                                   rdfs:label "Поддерживаемые операции Бухгалтерии" .
+
+
+###  http://nsu.ru/organizationalOntology/ПоддерживаемыеОперацииНГУ
+:ПоддерживаемыеОперацииНГУ rdf:type owl:NamedIndividual ,
+                                    :SupportedOperations ;
+                           :basicOperations "получение высшего образования,получение очного образования,получение степени бакалавра,получение степени магистра,получение степени аспиранта" ;
+                           rdfs:label "Поддерживаемые операции НГУ" .
+
+
+###  http://nsu.ru/organizationalOntology/ПоддерживаемыеОперацииРектората
+:ПоддерживаемыеОперацииРектората rdf:type owl:NamedIndividual ,
+                                          :SupportedOperations ;
+                                 :basicOperations "приём на работу,консультации по учебно-воспитательным вопросам,решение особо важных вопросов,предоставление особых справочных материалов,решение спорных вопросов" ;
+                                 rdfs:label "Поддерживаемые операции Ректората" .
+
+
+###  http://nsu.ru/organizationalOntology/Подместо
+:Подместо rdf:type owl:NamedIndividual ,
+                   :SubPlace ;
+          rdfs:label "Подместо" .
+
+
+###  http://nsu.ru/organizationalOntology/Подчиняться
+:Подчиняться rdf:type owl:NamedIndividual ,
+                      :ReportsTo ;
+             rdfs:label "Подчиняться" .
+
+
+###  http://nsu.ru/organizationalOntology/ПроректорПоНаучно-исследовательскойДеятельности
+:ПроректорПоНаучно-исследовательскойДеятельности rdf:type owl:NamedIndividual ,
+                                                          :Workspace ;
+                                                 :workspaceRelationLink :Связь:Проректор-Ректор ,
+                                                                        :Связь:ПроректорПоНаучно-ИсследовательскойДеятельности-Ректорат ;
+                                                 :workspaceType :Должность ;
+                                                 rdfs:label "Проректор по научно-исследовательской деятельности" .
+
+
+###  http://nsu.ru/organizationalOntology/ПроректорПоОбщимВопросам
+:ПроректорПоОбщимВопросам rdf:type owl:NamedIndividual ,
+                                   :Workspace ;
+                          :workspaceRelationLink :Связь:Проректор-Ректор ,
+                                                 :Связь:ПроректорПоОбщимВопросам-Ректорат ;
+                          :workspaceType :Должность ;
+                          rdfs:label "Проректор по общим вопросам" .
+
+
+###  http://nsu.ru/organizationalOntology/ПроректорПоУчебнойРаботе
+:ПроректорПоУчебнойРаботе rdf:type owl:NamedIndividual ,
+                                   :Workspace ;
+                          :workspaceRelationLink :Связь:Проректор-Ректор ,
+                                                 :Связь:ПроректорПоУчебнойРаботе-Ректорат ;
+                          :workspaceType :Должность ;
+                          rdfs:label "Проректор по учебной работе" .
+
+
+###  http://nsu.ru/organizationalOntology/Располагаться
+:Располагаться rdf:type owl:NamedIndividual ,
+                        :LocatesIn ;
+               rdfs:label "Располагаться" .
+
+
+###  http://nsu.ru/organizationalOntology/Ректор
+:Ректор rdf:type owl:NamedIndividual ,
+                 :Workspace ;
+        :workspaceRelationLink :Связь:Ректор-Ректорат ;
+        :workspaceType :Должность ;
+        rdfs:label "Ректор" .
+
+
+###  http://nsu.ru/organizationalOntology/Ректорат
+:Ректорат rdf:type owl:NamedIndividual ,
+                   :Workspace ;
+          :hasLimitations :БизнесПравилаРектората ;
+          :supports :ПоддерживаемыеОперацииРектората ;
+          :workspaceRelationLink :Связь:ОтделНГУ-НГУ ,
+                                 :Связь:Ректорат-НГУ ;
+          :workspaceType :Отдел ;
+          rdfs:label "Ректорат" .
+
+
+###  http://nsu.ru/organizationalOntology/РудаковаОксанаСергеевна
+:РудаковаОксанаСергеевна rdf:type owl:NamedIndividual ,
+                                  :Workspace ;
+                         :workspaceRelationLink :Связь:ОтделФУ-Сотрудник ,
+                                                :Связь:Сотрудник-ГлаваОтделаПоУчетуФинансовыхУслуг ,
+                                                :Связь:СотрудникБухгалтерии-Бухгалтерия ;
+                         :workspaceType :Сотрудник ;
+                         rdfs:label "Рудакова Оксана Сергеевна" .
+
+
+###  http://nsu.ru/organizationalOntology/СветланаГеннадьевнаСаблина
+:СветланаГеннадьевнаСаблина rdf:type owl:NamedIndividual ,
+                                     :Workspace ;
+                            :workspaceRelationLink :Связь:Сотрудник-ПроректорПоУчебнойРаботе ,
+                                                   :Связь:СотрудникРектората-Ректорат ;
+                            :workspaceType :Сотрудник ;
+                            rdfs:label "Светлана Геннадьевна Саблина" .
+
+
+###  http://nsu.ru/organizationalOntology/Секция
+:Секция rdf:type owl:NamedIndividual ,
+                 :Section ;
+        rdfs:label "Секция" .
+
+
+###  http://nsu.ru/organizationalOntology/СекцияРектората
+:СекцияРектората rdf:type owl:NamedIndividual ,
+                          :Workspace ;
+                 :workspaceRelationLink :Связь:Ректорат-НовыйКорпус ;
+                 :workspaceType :Место:Секция ;
+                 rdfs:label "Ректорат" .
+
+
+###  http://nsu.ru/organizationalOntology/СергейИгоревичМалиновский
+:СергейИгоревичМалиновский rdf:type owl:NamedIndividual ,
+                                    :Workspace ;
+                           :workspaceRelationLink :Связь:Сотрудник-ПроректорПоОбщимВопросам ,
+                                                  :Связь:СотрудникРектората-Ректорат ;
+                           :workspaceType :Сотрудник ;
+                           rdfs:label "Сергей Игоревич Малиновский" .
+
+
+###  http://nsu.ru/organizationalOntology/Сотрудник
+:Сотрудник rdf:type owl:NamedIndividual ,
+                    :Person ;
+           rdfs:label "Сотрудник" .
+
+
+###  http://nsu.ru/organizationalOntology/ТарскихНадеждаАлексеевна
+:ТарскихНадеждаАлексеевна rdf:type owl:NamedIndividual ,
+                                   :Workspace ;
+                          :workspaceRelationLink :Связь:Сотрудник-ГлБух ,
+                                                 :Связь:СотрудникБухгалтерии-Бухгалтерия ,
+                                                 :Связь:СотрудникРектората-Ректорат ,
+                                                 :Связь:ТарскихНадеждаАлексеевна-Кабинет ;
+                          :workspaceType :Сотрудник ;
+                          rdfs:label "Тарских Надежда Алексеевна" .
+
+
+###  http://nsu.ru/organizationalOntology/Территория
+:Территория rdf:type owl:NamedIndividual ,
+                     :Site ;
+            rdfs:label "Территория" .
+
+
+###  http://nsu.ru/organizationalOntology/Этаж
+:Этаж rdf:type owl:NamedIndividual ,
+               :Storey ;
+      rdfs:label "Этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/ЯвлятьсяГлавой
+:ЯвлятьсяГлавой rdf:type owl:NamedIndividual ,
+                         :HeadOf ;
+                rdfs:label "Являться главой" .
+
+
+###  http://nsu.ru/organizationalOntology/ЯвлятьсяДолжностьюОтдела
+:ЯвлятьсяДолжностьюОтдела rdf:type owl:NamedIndividual ,
+                                   :PostOf ;
+                          rdfs:label "Являться должностью отдела" .
+
+
+###  http://nsu.ru/organizationalOntology/ЯвлятьсяОтделом
+:ЯвлятьсяОтделом rdf:type owl:NamedIndividual ,
+                          :UnitOf ;
+                 rdfs:label "Являться отделом" .
+
+
+###  http://nsu.ru/organizationalOntology/ЯвлятьсяПодотделом
+:ЯвлятьсяПодотделом rdf:type owl:NamedIndividual ,
+                             :SubUnit ;
+                    rdfs:label "Являться подотделом" .
+
+
+###  http://nsu.ru/organizationalOntology/ЯвлятьсяЧленом
+:ЯвлятьсяЧленом rdf:type owl:NamedIndividual ,
+                         :MemberOf ;
+                rdfs:label "Являться членом" .
+
+
+###  http://nsu.ru/organizationalOntology/1этажРектората
+<http://nsu.ru/organizationalOntology/1этажРектората> rdf:type owl:NamedIndividual ,
+                                                               :Workspace ;
+                                                      :workspaceRelationLink :Связь:Этаж-Ректорат ;
+                                                      :workspaceType :Место:Этаж ;
+                                                      rdfs:label "1 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/2этажРектората
+<http://nsu.ru/organizationalOntology/2этажРектората> rdf:type owl:NamedIndividual ,
+                                                               :Workspace ;
+                                                      :workspaceRelationLink :Связь:Этаж-Ректорат ;
+                                                      :workspaceType :Место:Этаж ;
+                                                      rdfs:label "2 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/3этажРектората
+<http://nsu.ru/organizationalOntology/3этажРектората> rdf:type owl:NamedIndividual ,
+                                                               :Workspace ;
+                                                      :workspaceRelationLink :Связь:Этаж-Ректорат ;
+                                                      :workspaceType :Место:Этаж ;
+                                                      rdfs:label "3 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/4этажРектората
+<http://nsu.ru/organizationalOntology/4этажРектората> rdf:type owl:NamedIndividual ,
+                                                               :Workspace ;
+                                                      :workspaceRelationLink :Связь:Этаж-Ректорат ;
+                                                      :workspaceType :Место:Этаж ;
+                                                      rdfs:label "4 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/5этажРектората
+<http://nsu.ru/organizationalOntology/5этажРектората> rdf:type owl:NamedIndividual ,
+                                                               :Workspace ;
+                                                      :workspaceRelationLink :Связь:Этаж-Ректорат ;
+                                                      :workspaceType :Место:Этаж ;
+                                                      rdfs:label "5 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/Место:Здание
+:Место:Здание rdf:type owl:NamedIndividual ,
+                       :Place ;
+              :placeType :Здание ;
+              rdfs:label "Место: Здание" .
+
+
+###  http://nsu.ru/organizationalOntology/Место:Кабинет
+:Место:Кабинет rdf:type owl:NamedIndividual ,
+                        :Place ;
+               :placeType :Кабинет ;
+               rdfs:label "Место: Кабинет" .
+
+
+###  http://nsu.ru/organizationalOntology/Место:Секция
+:Место:Секция rdf:type owl:NamedIndividual ,
+                       :Place ;
+              :placeType :Секция ;
+              rdfs:label "Место: Секция" .
+
+
+###  http://nsu.ru/organizationalOntology/Место:Территория
+:Место:Территория rdf:type owl:NamedIndividual ,
+                           :Place ;
+                  :placeType :Территория ;
+                  rdfs:label "Место: Территория" .
+
+
+###  http://nsu.ru/organizationalOntology/Место:Этаж
+:Место:Этаж rdf:type owl:NamedIndividual ,
+                     :Place ;
+            :placeType :Этаж ;
+            rdfs:label "Место: Этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Бухгалтерия-НГУ
+:Связь:Бухгалтерия-НГУ rdf:type owl:NamedIndividual ,
+                                :Relation ;
+                       :relationType :ЯвлятьсяОтделом ;
+                       :relationWorkspaceLink :НГУ ;
+                       rdfs:label "Связь: Бухгалтерия - НГУ" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ГлБух-Бухгалтерия
+:Связь:ГлБух-Бухгалтерия rdf:type owl:NamedIndividual ,
+                                  :Relation ;
+                         :relationType :ЯвлятьсяГлавой ;
+                         :relationWorkspaceLink :Бухгалтерия ;
+                         rdfs:label "Связь: Главный бухгалтер - Бухгалтерия" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ГлБух-Ректор
+:Связь:ГлБух-Ректор rdf:type owl:NamedIndividual ,
+                             :Relation ;
+                    :relationType :Подчиняться ;
+                    :relationWorkspaceLink :Ректор ;
+                    rdfs:label "Связь: Главный бухгалтер - Ректор" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ГлаваОтдела-ЗамГлБух
+:Связь:ГлаваОтдела-ЗамГлБух rdf:type owl:NamedIndividual ,
+                                     :Relation ;
+                            :relationType :Подчиняться ;
+                            :relationWorkspaceLink :ЗаместительГлавногоБухгалтера ;
+                            rdfs:label "Связь: Глава отдела - Заместитель главного бухгалтера" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ГлаваОтделаПоРасчетамЗПиСТ-Отдел
+:Связь:ГлаваОтделаПоРасчетамЗПиСТ-Отдел rdf:type owl:NamedIndividual ,
+                                                 :Relation ;
+                                        :relationType :ЯвлятьсяГлавой ;
+                                        :relationWorkspaceLink :ОтделПоРасчетамЗПиСТ ;
+                                        rdfs:label "Связь: Глава отдела по расчетам заработной платы и стипендии - Отдел" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ГлаваОтделаПоУчетуНефинансовыхУслуг-Отдел
+:Связь:ГлаваОтделаПоУчетуНефинансовыхУслуг-Отдел rdf:type owl:NamedIndividual ,
+                                                          :Relation ;
+                                                 :relationType :ЯвлятьсяГлавой ;
+                                                 :relationWorkspaceLink :ОтделПоУчетуНефинансовыхУслуг ;
+                                                 rdfs:label "Связь: Глава отдела по учету нефинансовых услуг - Отдел" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ГлаваОтделаПоУчетуПлатныхУслуг-Отдел
+:Связь:ГлаваОтделаПоУчетуПлатныхУслуг-Отдел rdf:type owl:NamedIndividual ,
+                                                     :Relation ;
+                                            :relationType :ЯвлятьсяГлавой ;
+                                            :relationWorkspaceLink :ОтделПоУчетуПлатныхУслуг ;
+                                            rdfs:label "Связь: Глава отдела по учету платных услуг - Отдел" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ГлаваОтделаПоУчетуФинансовыхУслуг-Отдел
+:Связь:ГлаваОтделаПоУчетуФинансовыхУслуг-Отдел rdf:type owl:NamedIndividual ,
+                                                        :Relation ;
+                                               :relationType :ЯвлятьсяГлавой ;
+                                               :relationWorkspaceLink :ОтделПоУчетуФинансовыхУслуг ;
+                                               rdfs:label "Связь: Глава отдела по учету финансовых услуг - Отдел" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ГлавныйБухгалтер-Кабинет
+:Связь:ГлавныйБухгалтер-Кабинет rdf:type owl:NamedIndividual ,
+                                         :Relation ;
+                                :relationType :Располагаться ;
+                                :relationWorkspaceLink :Кабинет524 ;
+                                rdfs:label "Связь: Главный бухгалтер - Кабинет" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ЗамГлБух-Бухгалтерия
+:Связь:ЗамГлБух-Бухгалтерия rdf:type owl:NamedIndividual ,
+                                     :Relation ;
+                            :relationType :Подчиняться ;
+                            :relationWorkspaceLink :ГлавныйБухгалтер ;
+                            rdfs:label "Связь: Заместитель Главного бухгалтера - Бухгалтерия" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Кабинет-1этаж
+:Связь:Кабинет-1этаж rdf:type owl:NamedIndividual ,
+                              :Relation ;
+                     :relationType :Подместо ;
+                     :relationWorkspaceLink <http://nsu.ru/organizationalOntology/1этажРектората> ;
+                     rdfs:label "Связь: Кабинет - 1 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Кабинет-2этаж
+:Связь:Кабинет-2этаж rdf:type owl:NamedIndividual ,
+                              :Relation ;
+                     :relationType :Подместо ;
+                     :relationWorkspaceLink <http://nsu.ru/organizationalOntology/2этажРектората> ;
+                     rdfs:label "Связь: Кабинет - 2 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Кабинет-3этаж
+:Связь:Кабинет-3этаж rdf:type owl:NamedIndividual ,
+                              :Relation ;
+                     :relationType :Подместо ;
+                     :relationWorkspaceLink <http://nsu.ru/organizationalOntology/3этажРектората> ;
+                     rdfs:label "Связь: Кабинет - 3 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Кабинет-4этаж
+:Связь:Кабинет-4этаж rdf:type owl:NamedIndividual ,
+                              :Relation ;
+                     :relationType :Подместо ;
+                     :relationWorkspaceLink <http://nsu.ru/organizationalOntology/4этажРектората> ;
+                     rdfs:label "Связь: Кабинет - 4 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Кабинет-5этаж
+:Связь:Кабинет-5этаж rdf:type owl:NamedIndividual ,
+                              :Relation ;
+                     :relationType :Подместо ;
+                     :relationWorkspaceLink <http://nsu.ru/organizationalOntology/5этажРектората> ;
+                     rdfs:label "Связь: Кабинет - 5 этаж" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:НовыйКорпус-Кампус
+:Связь:НовыйКорпус-Кампус rdf:type owl:NamedIndividual ,
+                                   :Relation ;
+                          :relationType :Подместо ;
+                          :relationWorkspaceLink :КампусНГУ ;
+                          rdfs:label "Связь: Новый корпус - Кампус" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ОтделЗПиСТ-Сотрудник
+:Связь:ОтделЗПиСТ-Сотрудник rdf:type owl:NamedIndividual ,
+                                     :Relation ;
+                            :relationType :ЯвлятьсяЧленом ;
+                            :relationWorkspaceLink :ОтделПоРасчетамЗПиСТ ;
+                            rdfs:label "Связь: Отдел по расчетам заработной платы и стипендии - Сотрудник" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ОтделНГУ-НГУ
+:Связь:ОтделНГУ-НГУ rdf:type owl:NamedIndividual ,
+                             :Relation ;
+                    :relationType :ЯвлятьсяОтделом ;
+                    :relationWorkspaceLink :НГУ ;
+                    rdfs:label "Связь: ОтделНГУ - НГУ" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ОтделНУ-Сотрудник
+:Связь:ОтделНУ-Сотрудник rdf:type owl:NamedIndividual ,
+                                  :Relation ;
+                         :relationType :ЯвлятьсяЧленом ;
+                         :relationWorkspaceLink :ОтделПоУчетуНефинансовыхУслуг ;
+                         rdfs:label "Связь: Отдел по учету нефинансовых услуг - Сотрудник" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ОтделПУ-Сотрудник
+:Связь:ОтделПУ-Сотрудник rdf:type owl:NamedIndividual ,
+                                  :Relation ;
+                         :relationType :ЯвлятьсяЧленом ;
+                         :relationWorkspaceLink :ОтделПоУчетуПлатныхУслуг ;
+                         rdfs:label "Связь: Отдел по учету платных услуг - Сотрудник" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ОтделФУ-Сотрудник
+:Связь:ОтделФУ-Сотрудник rdf:type owl:NamedIndividual ,
+                                  :Relation ;
+                         :relationType :ЯвлятьсяЧленом ;
+                         :relationWorkspaceLink :ОтделПоУчетуФинансовыхУслуг ;
+                         rdfs:label "Связь: Отдел по учету финансовых услуг - Сотрудник" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ПодотделыБухгалтерии-Бухгалтерия
+:Связь:ПодотделыБухгалтерии-Бухгалтерия rdf:type owl:NamedIndividual ,
+                                                 :Relation ;
+                                        :relationType :ЯвлятьсяПодотделом ;
+                                        :relationWorkspaceLink :Бухгалтерия ;
+                                        rdfs:label "Связь: Подотделы бухгалтерии - Бухгалтерия" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Проректор-Ректор
+:Связь:Проректор-Ректор rdf:type owl:NamedIndividual ,
+                                 :Relation ;
+                        :relationType :Подчиняться ;
+                        :relationWorkspaceLink :Ректор ;
+                        rdfs:label "Связь: Проректор - Ректор" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ПроректорПоНаучно-ИсследовательскойДеятельности-Ректорат
+:Связь:ПроректорПоНаучно-ИсследовательскойДеятельности-Ректорат rdf:type owl:NamedIndividual ,
+                                                                         :Relation ;
+                                                                :relationType :ЯвлятьсяДолжностьюОтдела ;
+                                                                :relationWorkspaceLink :Ректорат ;
+                                                                rdfs:label "Связь: Проректор по научно-исследовательской деятельности - Ректорат" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ПроректорПоОбщимВопросам-Ректорат
+:Связь:ПроректорПоОбщимВопросам-Ректорат rdf:type owl:NamedIndividual ,
+                                                  :Relation ;
+                                         :relationType :ЯвлятьсяДолжностьюОтдела ;
+                                         :relationWorkspaceLink :Ректорат ;
+                                         rdfs:label "Связь: Проректор по общим вопросам - Ректорат" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ПроректорПоУчебнойРаботе-Ректорат
+:Связь:ПроректорПоУчебнойРаботе-Ректорат rdf:type owl:NamedIndividual ,
+                                                  :Relation ;
+                                         :relationType :ЯвлятьсяДолжностьюОтдела ;
+                                         :relationWorkspaceLink :Ректорат ;
+                                         rdfs:label "Связь: Проректор по учебной работе - Ректорат" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Ректор-Ректорат
+:Связь:Ректор-Ректорат rdf:type owl:NamedIndividual ,
+                                :Relation ;
+                       :relationType :ЯвлятьсяГлавой ;
+                       :relationWorkspaceLink :Ректорат ;
+                       rdfs:label "Связь: Ректор - Ректорат" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Ректорат-НГУ
+:Связь:Ректорат-НГУ rdf:type owl:NamedIndividual ,
+                             :Relation ;
+                    :relationType :ЯвлятьсяПодотделом ;
+                    :relationWorkspaceLink :НГУ ;
+                    rdfs:label "Связь: Ректорат - НГУ" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Ректорат-НовыйКорпус
+:Связь:Ректорат-НовыйКорпус rdf:type owl:NamedIndividual ,
+                                     :Relation ;
+                            :relationType :Подместо ;
+                            :relationWorkspaceLink :НовыйкорпусНГУ ;
+                            rdfs:label "Связь: Ректорат - Новый корпус" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-ГлБух
+:Связь:Сотрудник-ГлБух rdf:type owl:NamedIndividual ,
+                                :Relation ;
+                       :relationType :ЗаниматьДолжность ;
+                       :relationWorkspaceLink :ГлавныйБухгалтер ;
+                       rdfs:label "Связь: Сотрудник - Главный бухгалтер" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-ГлаваОтделаПоРасчетамЗПиСТ
+:Связь:Сотрудник-ГлаваОтделаПоРасчетамЗПиСТ rdf:type owl:NamedIndividual ,
+                                                     :Relation ;
+                                            :relationType :ЗаниматьДолжность ;
+                                            :relationWorkspaceLink :ГлаваОтделаПоРасчетамЗПиСТ ;
+                                            rdfs:label "Связь: Сотрудник - Глава отдела по расчетам заработной платы и стипендии" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-ГлаваОтделаПоУчетуНефинансовыхУслуг
+:Связь:Сотрудник-ГлаваОтделаПоУчетуНефинансовыхУслуг rdf:type owl:NamedIndividual ,
+                                                              :Relation ;
+                                                     :relationType :ЗаниматьДолжность ;
+                                                     :relationWorkspaceLink :ГлаваОтделаПоУчетуНефинансовыхУслуг ;
+                                                     rdfs:label "Связь: Сотрудник - Глава отдела по учету нефинансовых услуг" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-ГлаваОтделаПоУчетуПлатныхУслуг
+:Связь:Сотрудник-ГлаваОтделаПоУчетуПлатныхУслуг rdf:type owl:NamedIndividual ,
+                                                         :Relation ;
+                                                :relationType :ЗаниматьДолжность ;
+                                                :relationWorkspaceLink :ГлаваОтделаПоУчетуПлатныхУслуг ;
+                                                rdfs:label "Связь: Сотрудник - Глава отдела по учету платных услуг" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-ГлаваОтделаПоУчетуФинансовыхУслуг
+:Связь:Сотрудник-ГлаваОтделаПоУчетуФинансовыхУслуг rdf:type owl:NamedIndividual ,
+                                                            :Relation ;
+                                                   :relationType :ЗаниматьДолжность ;
+                                                   :relationWorkspaceLink :ГлаваОтделаПоУчетуФинансовыхУслуг ;
+                                                   rdfs:label "Связь: Сотрудник - Глава отдела по учету финансовых услуг" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-ЗамГлБух
+:Связь:Сотрудник-ЗамГлБух rdf:type owl:NamedIndividual ,
+                                   :Relation ;
+                          :relationType :ЗаниматьДолжность ;
+                          :relationWorkspaceLink :ЗаместительГлавногоБухгалтера ;
+                          rdfs:label "Связь: Сотрудник - Заместитель Главного бухгалтера" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-ПроректорПоНаучно-ИсследовательскойДеятельности
+:Связь:Сотрудник-ПроректорПоНаучно-ИсследовательскойДеятельности rdf:type owl:NamedIndividual ,
+                                                                          :Relation ;
+                                                                 :relationType :ЗаниматьДолжность ;
+                                                                 :relationWorkspaceLink :ПроректорПоНаучно-исследовательскойДеятельности ;
+                                                                 rdfs:label "Связь: Сотрудник - Проректор по научно-исследовательской деятельности" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-ПроректорПоОбщимВопросам
+:Связь:Сотрудник-ПроректорПоОбщимВопросам rdf:type owl:NamedIndividual ,
+                                                   :Relation ;
+                                          :relationType :ЗаниматьДолжность ;
+                                          :relationWorkspaceLink :ПроректорПоОбщимВопросам ;
+                                          rdfs:label "Связь: Сотрудник - Проректор по общим вопросам" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-ПроректорПоУчебнойРаботе
+:Связь:Сотрудник-ПроректорПоУчебнойРаботе rdf:type owl:NamedIndividual ,
+                                                   :Relation ;
+                                          :relationType :ЗаниматьДолжность ;
+                                          :relationWorkspaceLink :ПроректорПоУчебнойРаботе ;
+                                          rdfs:label "Связь: Сотрудник - Проректор по учебной работе" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Сотрудник-Ректор
+:Связь:Сотрудник-Ректор rdf:type owl:NamedIndividual ,
+                                 :Relation ;
+                        :relationType :ЗаниматьДолжность ;
+                        :relationWorkspaceLink :Ректор ;
+                        rdfs:label "Связь: Сотрудник - Ректор" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:СотрудникБухгалтерии-Бухгалтерия
+:Связь:СотрудникБухгалтерии-Бухгалтерия rdf:type owl:NamedIndividual ,
+                                                 :Relation ;
+                                        :relationType :ЯвлятьсяЧленом ;
+                                        :relationWorkspaceLink :Бухгалтерия ;
+                                        rdfs:label "Связь: Сотрудник бухгалтерии - Бухгалтерия" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:СотрудникРектората-Ректорат
+:Связь:СотрудникРектората-Ректорат rdf:type owl:NamedIndividual ,
+                                            :Relation ;
+                                   :relationType :ЯвлятьсяЧленом ;
+                                   :relationWorkspaceLink :Ректорат ;
+                                   rdfs:label "Связь: Сотрудник ректората - Ректорат" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:ТарскихНадеждаАлексеевна-Кабинет
+:Связь:ТарскихНадеждаАлексеевна-Кабинет rdf:type owl:NamedIndividual ,
+                                                 :Relation ;
+                                        :relationType :Располагаться ;
+                                        :relationWorkspaceLink :Кабинет524 ;
+                                        rdfs:label "Связь: Тарских Н.А. - Кабинет" .
+
+
+###  http://nsu.ru/organizationalOntology/Связь:Этаж-Ректорат
+:Связь:Этаж-Ректорат rdf:type owl:NamedIndividual ,
+                              :Relation ;
+                     :relationType :Подместо ;
+                     :relationWorkspaceLink :СекцияРектората ;
+                     rdfs:label "Связь: Этаж - Ректорат" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
