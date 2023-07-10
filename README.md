@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+# Bachelor's Degree Thesis Demo Repository
+This repository contains the code for a visual demonstration of a sample usage scenario of the semantic model developed as part of my bachelor's degree thesis project. The project aimed to develop an innovative information system to assist individuals in navigating unfamiliar organizations by providing answers to queries about their internal structure and processes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Alt text](<Demonstration screens/main-page-big.png>)
 
-## Available Scripts
+# Project Overview
+The core of this project is a generic semantic model, implemented as a knowledge graph, that can represent various organizations. The knowledge graph serves as the foundation for the information system and enables the illustration and exploration of organizational structures and processes.
 
-In the project directory, you can run:
+# Key Features
+* Ontology-based representation of organizational knowledge.
+* Implementation of a server-side application using Python, RDFLib, and Flask.
+* Development of a client-side application using HTML, CSS, and JavaScript.
+* Integration of the server and client components to enable interaction with the knowledge graph.
 
-### `npm start`
+# Thesis Work
+The development of the semantic model and its implementation in this project formed a significant part of my bachelor's degree thesis. I successfully defended my thesis with distinction, demonstrating a deep understanding of the subject matter and the ability to apply it practically.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Usage Instructions
+To run the demonstration, follow these steps:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone this repository to your local machine.
+2. Set up and configure the server-side application by opening restAPI.py in a suitable integrated development environment (e.g., PyCharm). Install any required dependencies.
+3. In restAPI.py, specify the absolute path to the ontology file in line 8 (g.parse('absolute_path_to_ontology_file')).
+4. Start the server-side application by running restAPI.py.
+5. Navigate to the "Frontend" folder and open index.html in a web browser to access the client-side application.
+6. Explore the demonstration, interact with the visual representation of the knowledge graph, and observe the functionality of the information system.
